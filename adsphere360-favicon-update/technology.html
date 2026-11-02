@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Technology · AdSphere360</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="How the AdSphere360 exchange scans, optimizes and reports on every request.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="AdSphere360 home"><img src="assets/logo-light.png" alt="AdSphere360" width="900" height="217"></a>
+    <nav class="nav-links" aria-label="Main"><a href="publishers.html">Publishers</a><a href="demand.html">Demand partners</a><a href="technology.html" aria-current="page">Technology</a><a href="company.html">Company</a><a class="btn btn-brand nav-cta" href="contact.html">Talk to us</a></nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-panel"><span class="label">Menu</span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 5h12M2 11h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+  </div>
+</header>
+<nav class="mobile-panel" id="mobile-panel" aria-label="Mobile"><a href="index.html">Home</a><a href="publishers.html">Publishers</a><a href="demand.html">Demand partners</a><a href="technology.html" aria-current="page">Technology</a><a href="company.html">Company</a><a href="contact.html">Contact</a></nav>
+<main>
+<section class="hero wide-title">
+  <div class="hero-media"><img src="assets/img/fiber-glow.jpg" alt="Strands of fiber-optic cable glowing blue in the dark" fetchpriority="high"></div>
+  <div class="wrap hero-inner on-photo">
+    <span class="eyebrow rise">Technology</span>
+    <h1 class="h-hero rise d1">An exchange built to be audited.</h1>
+    <p class="lede rise d2">Our own exchange and ad server, with HUMAN scanning in front of the auction and machine learning behind the yield. Here is what happens to every request.</p>
+    
+    
+  </div>
+</section>
+<section class="dark band"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">The request path</span><h2 class="h-xl">Four stages, every impression.</h2></div>
+  <ol class="steps" style="list-style:none;margin:0;padding:0">
+    <li class="step"><span class="n">01 · Receive</span><h3 class="h-m">Direct supply</h3><p>Requests arrive from publishers we contract with directly, through VAST, oRTB, our SDK or Prebid.</p></li>
+    <li class="step"><span class="n">02 · Scan</span><h3 class="h-m">HUMAN pre-bid</h3><p>Each request is checked by HUMAN before any bidder sees it. Invalid traffic stops here.</p></li>
+    <li class="step"><span class="n">03 · Optimize</span><h3 class="h-m">ML floors and routing</h3><p>Our ad server learns floors per placement and routes each impression to the demand most likely to pay for it.</p></li>
+    <li class="step"><span class="n">04 · Report</span><h3 class="h-m">Shared numbers</h3><p>Revenue, fill and demand source, broken out by app, channel and placement, visible to both sides.</p></li>
+  </ol>
+</div></section>
+
+<section class="ink band"><div class="wrap feature">
+  <div class="copy">
+    <span class="eyebrow">Supply chain</span>
+    <h2 class="h-xl">Read the proof in the request.</h2>
+    <p class="lede">Every request we send carries a complete schain object with AdSphere360 as the selling node. Combined with our public sellers.json, buyers can trace the full path from their bid to the screen.</p>
+  </div>
+  <div class="inspector" aria-label="Example bid request from the AdSphere360 exchange">
+  <div class="insp-top">
+    <span class="insp-title">Example bid request</span>
+    <div class="tabs" role="tablist" aria-label="Request type">
+      <button class="tab" role="tab" id="tab-ctv" aria-selected="true" aria-controls="req-ctv">CTV</button>
+      <button class="tab" role="tab" id="tab-app" aria-selected="false" aria-controls="req-app" tabindex="-1">In-app</button>
+      <button class="tab" role="tab" id="tab-web" aria-selected="false" aria-controls="req-web" tabindex="-1">Web</button>
+    </div>
+  </div>
+  <div class="code-stack">
+<pre id="req-ctv" role="tabpanel" aria-labelledby="tab-ctv">{
+  <span class="k">"imp"</span>: [{
+    <span class="k">"video"</span>: {
+      <span class="k">"mimes"</span>: [<span class="s">"video/mp4"</span>],
+      <span class="k">"maxduration"</span>: <span class="n">30</span>
+    }
+  }],
+  <span class="k">"app"</span>: { <span class="k">"bundle"</span>: <span class="s">"example.fast.channel"</span> },
+  <span class="k">"device"</span>: { <span class="k">"devicetype"</span>: <span class="n">3</span> },  <span class="c">// CTV</span>
+  <span class="k">"source"</span>: { <span class="k">"schain"</span>: {
+    <span class="hl"><span class="k">"complete"</span>: <span class="n">1</span></span>,
+    <span class="k">"nodes"</span>: [{
+      <span class="hl"><span class="k">"asi"</span>: <span class="s">"adsphere360.com"</span></span>,
+      <span class="k">"hp"</span>: <span class="n">1</span>
+    }]
+  }}
+}</pre>
+<pre id="req-app" role="tabpanel" aria-labelledby="tab-app" data-off>{
+  <span class="k">"imp"</span>: [{
+    <span class="k">"banner"</span>: { <span class="k">"w"</span>: <span class="n">320</span>, <span class="k">"h"</span>: <span class="n">480</span> },
+    <span class="k">"instl"</span>: <span class="n">1</span>
+  }],
+  <span class="k">"app"</span>: { <span class="k">"bundle"</span>: <span class="s">"com.example.puzzle"</span> },
+  <span class="k">"device"</span>: { <span class="k">"devicetype"</span>: <span class="n">4</span> },  <span class="c">// phone</span>
+  <span class="k">"source"</span>: { <span class="k">"schain"</span>: {
+    <span class="hl"><span class="k">"complete"</span>: <span class="n">1</span></span>,
+    <span class="k">"nodes"</span>: [{
+      <span class="hl"><span class="k">"asi"</span>: <span class="s">"adsphere360.com"</span></span>,
+      <span class="k">"hp"</span>: <span class="n">1</span>
+    }]
+  }}
+}</pre>
+<pre id="req-web" role="tabpanel" aria-labelledby="tab-web" data-off>{
+  <span class="k">"imp"</span>: [{
+    <span class="k">"video"</span>: { <span class="k">"plcmt"</span>: <span class="n">4</span> }
+  }],
+  <span class="k">"site"</span>: { <span class="k">"domain"</span>: <span class="s">"example-publisher.com"</span> },
+  <span class="k">"device"</span>: { <span class="k">"devicetype"</span>: <span class="n">2</span> },  <span class="c">// desktop</span>
+  <span class="k">"source"</span>: { <span class="k">"schain"</span>: {
+    <span class="hl"><span class="k">"complete"</span>: <span class="n">1</span></span>,
+    <span class="k">"nodes"</span>: [{
+      <span class="hl"><span class="k">"asi"</span>: <span class="s">"adsphere360.com"</span></span>,
+      <span class="k">"hp"</span>: <span class="n">1</span>
+    }]
+  }}
+}</pre>
+  </div>
+  <div class="insp-checks">
+    <div>Pre-bid IVT scan<strong>Passed</strong></div>
+    <div>Supply chain<strong>Complete</strong></div>
+    <div>Seller type<strong>Direct</strong></div>
+  </div>
+</div>
+</div></section>
+
+<section class="white band"><div class="wrap feature flip">
+  <figure class="wide"><img src="assets/img/data-hall.jpg" alt="A bright data hall with rows of server cabinets" loading="lazy"></figure>
+  <div class="copy">
+    <span class="eyebrow">Yield</span>
+    <h2 class="h-xl">Floors that learn per placement.</h2>
+    <p class="lede">A single floor across an app leaves money on the table. Our ad server learns what each placement clears at and adjusts continuously, so publishers earn more and buyers see fair prices.</p>
+    <ul class="checks"><li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Floors tuned per placement, not per account</span></li><li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Routing to the demand most likely to win and pay</span></li><li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Changes visible in reporting, never a black box</span></li></ul>
+  </div>
+</div></section>
+<section class="photo-band cta-band">
+  <img class="bg" src="assets/img/server-racks.jpg" alt="" loading="lazy">
+  <div class="wrap"><div class="inner">
+    <span class="eyebrow" style="color:var(--glow)">Talk to our team</span>
+    <h2 class="h-xl">Want the technical detail?</h2>
+    <p class="lede" style="color:#C9D0E2">Our AdOps lead can walk you through endpoints, specs and the scan setup on a call.</p>
+    <div><a class="btn btn-light" href="contact.html">Book a technical call <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  </div></div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <img src="assets/logo-light.png" alt="AdSphere360" width="900" height="217">
+      <p>A programmatic exchange for CTV, in-app and web. Direct publishers, pre-bid IVT scanning and a complete supply chain on every request.</p>
+    </div>
+    <div class="foot-col"><h4>Work with us</h4><ul>
+      <li><a href="publishers.html">Publishers</a></li>
+      <li><a href="demand.html">Demand partners</a></li>
+      <li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="foot-col"><h4>Company</h4><ul>
+      <li><a href="technology.html">Technology</a></li>
+      <li><a href="company.html">About us</a></li>
+      <li><a href="privacy-policy.html">Privacy policy</a></li></ul></div>
+  </div>
+  <div class="wrap foot-base"><span>© 2026 AdSphere360. All rights reserved.</span><span>hello@adsphere360.com · +1 (307) 310-4919</span></div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>
